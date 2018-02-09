@@ -141,7 +141,7 @@ Transform:
   m_Children:
   - {fileID: 1335227870}
   m_Father: {fileID: 1660788803}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &36182887
 MonoBehaviour:
@@ -270,6 +270,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 142253738}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &361213383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 361213384}
+  m_Layer: 8
+  m_Name: GunRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &361213384
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 361213383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1269673137}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &441442108
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +307,6 @@ GameObject:
   m_Component:
   - component: {fileID: 441442109}
   - component: {fileID: 441442112}
-  - component: {fileID: 441442111}
   - component: {fileID: 441442110}
   m_Layer: 8
   m_Name: FlameCube
@@ -335,18 +362,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &441442111
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 441442108}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &441442112
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -363,7 +378,6 @@ GameObject:
   m_Component:
   - component: {fileID: 448970157}
   - component: {fileID: 448970160}
-  - component: {fileID: 448970159}
   - component: {fileID: 448970158}
   m_Layer: 8
   m_Name: FlameCube
@@ -419,18 +433,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &448970159
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 448970156}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &448970160
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -596,7 +598,6 @@ GameObject:
   m_Component:
   - component: {fileID: 917741703}
   - component: {fileID: 917741706}
-  - component: {fileID: 917741705}
   - component: {fileID: 917741704}
   m_Layer: 8
   m_Name: FlameCube
@@ -652,18 +653,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &917741705
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 917741702}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &917741706
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -680,7 +669,6 @@ GameObject:
   m_Component:
   - component: {fileID: 977152678}
   - component: {fileID: 977152681}
-  - component: {fileID: 977152680}
   - component: {fileID: 977152679}
   m_Layer: 8
   m_Name: FlameCube
@@ -736,18 +724,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &977152680
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 977152677}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &977152681
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -764,7 +740,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1060077003}
   - component: {fileID: 1060077006}
-  - component: {fileID: 1060077005}
   - component: {fileID: 1060077004}
   m_Layer: 8
   m_Name: FlameCube
@@ -820,18 +795,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1060077005
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1060077002}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1060077006
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -917,10 +880,40 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1105584927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 5, z: 5}
+  m_LocalPosition: {x: 4, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1269673136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1269673137}
+  m_Layer: 8
+  m_Name: Guns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1269673137
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1269673136}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1934237446}
+  - {fileID: 361213384}
+  m_Father: {fileID: 2105833080}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1335227869
@@ -932,7 +925,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1335227870}
   - component: {fileID: 1335227873}
-  - component: {fileID: 1335227872}
   - component: {fileID: 1335227871}
   m_Layer: 8
   m_Name: FlameCube
@@ -988,18 +980,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1335227872
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1335227869}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1335227873
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1160,7 +1140,7 @@ Transform:
   m_Children:
   - {fileID: 448970157}
   m_Father: {fileID: 1660788803}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!114 &1483964068
 MonoBehaviour:
@@ -1248,7 +1228,7 @@ Transform:
   m_Children:
   - {fileID: 977152678}
   m_Father: {fileID: 1660788803}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &1636433565
 MonoBehaviour:
@@ -1290,12 +1270,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1486160145}
-  - {fileID: 1483964067}
-  - {fileID: 2048492592}
-  - {fileID: 36182886}
-  - {fileID: 1378712333}
-  - {fileID: 1636433564}
   - {fileID: 1798862327}
+  - {fileID: 1636433564}
+  - {fileID: 2048492592}
+  - {fileID: 1378712333}
+  - {fileID: 1483964067}
+  - {fileID: 36182886}
   m_Father: {fileID: 2105833080}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1327,7 +1307,7 @@ Transform:
   m_Children:
   - {fileID: 1958160580}
   m_Father: {fileID: 1660788803}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &1798862328
 MonoBehaviour:
@@ -1343,6 +1323,34 @@ MonoBehaviour:
   flame: {fileID: 1958160579}
   axis: Vertical
   upRight: 1
+--- !u!1 &1934237445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1934237446}
+  m_Layer: 8
+  m_Name: GunLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1934237446
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1934237445}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1269673137}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1958160579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,7 +1360,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1958160580}
   - component: {fileID: 1958160583}
-  - component: {fileID: 1958160582}
   - component: {fileID: 1958160581}
   m_Layer: 8
   m_Name: FlameCube
@@ -1408,18 +1415,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1958160582
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1958160579}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1958160583
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1455,7 +1450,7 @@ Transform:
   m_Children:
   - {fileID: 917741703}
   m_Father: {fileID: 1660788803}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2048492593
 MonoBehaviour:
@@ -1496,12 +1491,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2105833079}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 594988705}
   - {fileID: 140155318}
   - {fileID: 1660788803}
+  - {fileID: 1269673137}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1533,6 +1529,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 5
   rotSpeed: 2
+  projectilePrefab: {fileID: 1178186334564046, guid: 1fcd40d1784d60c4e82d00577bc06008,
+    type: 2}
+  projectileSpeed: 20
+  guns:
+  - {fileID: 1934237445}
+  - {fileID: 361213383}
 --- !u!114 &2105833083
 MonoBehaviour:
   m_ObjectHideFlags: 0
