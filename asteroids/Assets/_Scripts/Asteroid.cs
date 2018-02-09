@@ -18,12 +18,12 @@ public class Asteroid : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         transform.rotation = Quaternion.Euler(0, 0, rot);
-        rb.AddForce(transform.up * speed, ForceMode.Acceleration);
+        rb.velocity = rb.transform.up * speed;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        rb.AddForce(transform.up * speed, ForceMode.Acceleration);
+
     }
 }

@@ -26,11 +26,15 @@ public class PlayerShip : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        float vInput = Input.GetAxis("Vertical");
+        float hInput = Input.GetAxis("Horizontal");
+
         // Apply force to ship based on input
-        rb.AddForce(rb.transform.up * thrust * Input.GetAxis("Vertical"), ForceMode.Acceleration);
+        rb.AddForce(rb.transform.up * thrust * vInput, ForceMode.Acceleration);
+        rb.AddForce(rb.transform.right * thrust * hInput, ForceMode.Acceleration);
 
         // Rotate ship with A/D or Left Arrow/Right Arrow
-        rb.rotation *= Quaternion.Euler(0, 0, Input.GetAxis("Horizontal") * -rotSpeed);
+        rb.rotation *= Quaternion.Euler(0, 0, hInput * -rotSpeed);
         // Allow the ship to fire
         if (Input.GetKeyDown(KeyCode.Space))
         {

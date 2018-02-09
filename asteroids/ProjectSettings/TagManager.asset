@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spawn
   - Projectile
+  - Asteroid
   layers:
   - Default
   - TransparentFX
