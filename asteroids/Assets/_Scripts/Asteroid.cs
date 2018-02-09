@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
+    public Vector2 velocityRange = new Vector2(4, 6);
+    public GameObject splitAsteroid;
+
     float speed;
     float rot;
 
@@ -12,7 +15,7 @@ public class Asteroid : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        speed = Random.Range(4, 6);
+        speed = Random.Range(velocityRange.x, velocityRange.y);
         rot = Random.Range(0, 360);
 
         rb = GetComponent<Rigidbody>();
@@ -23,6 +26,12 @@ public class Asteroid : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update ()
+    {
+
+    }
+
+    // splits an asteroid into smaller asteroids, and destroys the current asteroid
+    public void Split()
     {
 
     }
