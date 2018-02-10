@@ -55,14 +55,14 @@ public class Asteroid : MonoBehaviour
         // create sub asteroids
         for (int i = 0; i < 2; i++)
         {
-            // create new asteroid. NOTE - CANNOT USE THE PARENT TRANSFORM
-            GameObject asteroidGO = Instantiate<GameObject>(splitAsteroid, new Vector3(transform.position.x, transform.position.y, transform.position.z), new Quaternion());
+            // create new asteroid. NOTE - CANNOT USE THE PARENT TRANSFORM. THAT WOULD MAKE THE NEW OBJECT A CHILD OF THE CURRENT OBJECT, AND WOULD LEAD TO IT BEING DESTROYED AT THE END OF THIS FUNCTION
+            GameObject asteroidGO = Instantiate<GameObject>(splitAsteroid, new Vector3(transform.position.x + Random.Range(-10, 10), transform.position.y + Random.Range(-10, 10), transform.position.z), new Quaternion());
             // turn off randomization of initial settings
             asteroidGO.GetComponent<Asteroid>().randomizeInitialSettings = false;
             // set new asteroid rotation (old + randomized, within +-30 degrees)
             asteroidGO.transform.rotation = Quaternion.Euler(0, 0, gameObject.transform.rotation.eulerAngles.z + Random.Range(-30, 30));
             // set new asteroid velocity
-            asteroidGO.GetComponent<Rigidbody>().velocity = asteroidGO.transform.up * (speed + Random.Range(-1, 1));
+            asteroidGO.GetComponent<Rigidbody>().velocity = asteroidGO.transform.up * (speed + Random.Range(2, 4));
         }
 
         // destroy this asteroid

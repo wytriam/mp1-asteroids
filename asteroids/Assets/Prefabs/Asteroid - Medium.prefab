@@ -113,6 +113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityRange: {x: 6, y: 9}
+  randomizeInitialSettings: 1
+  splitAsteroid: {fileID: 1033115637630832, guid: b8cf32f0a3f137f48b691a26b638180a,
+    type: 2}
 --- !u!114 &114826251101870402
 MonoBehaviour:
   m_ObjectHideFlags: 1

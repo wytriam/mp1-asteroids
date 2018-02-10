@@ -41,6 +41,8 @@ namespace WytriamSTD
         void Start()
         {
             anncmntText = GetComponentInChildren<Text>();
+            if (anncmntText == null)
+                Debug.Log("Announcements::Start() - Could not find Announcements Text");
             anncmntText.enabled = false;
             announcementLog = new List<string>();
         }
@@ -48,16 +50,7 @@ namespace WytriamSTD
         // Update is called once per frame
         void Update()
         {
-            if (anncmntText.enabled)
-            {
-                timer += Time.fixedDeltaTime;
-                if (timer >= announcementDuration)
-                {
-                    anncmntText.enabled = false;
-                    announcementDuration = defaultDuration;
-                    timer = 0.0f;
-                }
-            }
+
         }
 
         // Add an announcement to the announcement log. This will not display the announcement on screen. 
@@ -72,14 +65,14 @@ namespace WytriamSTD
         {
             if (!allowAnnouncements) return;
             //Debug.Log("Announcements::DisplayAnnouncement() - " + announcement);
-            anncmntText.text = announcement;
             anncmntText.enabled = true;
+            anncmntText.text = announcement;
             if (!announcementLog.Contains(announcement))
                 announcementLog.Add(announcement);
         }
 
         // Display an announcement to the screen for a fixed duration. If this announcement is not on the log, it will be added to the log
-        public void DisplayAnnouncement(string announcement, int duration)
+        public void DisplayAnnouncement(string announcement, float duration)
         {
             if (!allowAnnouncements) return;
             //Debug.Log("Announcements::DisplayAnnouncement() - " + announcement);
@@ -106,6 +99,11 @@ namespace WytriamSTD
         public void enableAnnouncements()
         {
             allowAnnouncements = true;
+        }
+
+        IEnumerator Announcment(string announcement, float duration)
+        {
+            yield return null;
         }
     }
 }
