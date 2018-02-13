@@ -5,7 +5,8 @@ using UnityEngine;
 public class Constants: MonoBehaviour
 {
     [Header("Do not change during play: ")]
-    public int numLives = 3;
+    [SerializeField]
+    private int numShips = 0;
 
     [SerializeField]
     private int numAsteroids = 0;
@@ -15,20 +16,9 @@ public class Constants: MonoBehaviour
     {
         Messenger.AddListener(Messages.INST_ASTEROID, incAst);
         Messenger.AddListener(Messages.DEST_ASTEROID, decAst);
+        Messenger.AddListener(Messages.INST_SHIP, incShips);
+        Messenger.AddListener(Messages.DEST_SHIP, decShips);
     }
-
-
-    // Use this for initialization
-    void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 
     // decrements the number of asteroids
     void decAst()
@@ -45,5 +35,22 @@ public class Constants: MonoBehaviour
     public int getNumAsteroids()
     {
         return numAsteroids;
+    }
+
+    // decrements the number of ships
+    void decShips()
+    {
+        numShips--;
+    }
+
+    // increments the number of ships
+    void incShips()
+    {
+        numShips++;
+    }
+
+    public int getNumShips()
+    {
+        return numShips;
     }
 }

@@ -303,6 +303,16 @@ Prefab:
       propertyPath: projectileSpeed
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 135028244438747318, guid: b88831f44791a1a4cac00abdfbdfa080,
+        type: 2}
+      propertyPath: m_Radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 135028244438747318, guid: b88831f44791a1a4cac00abdfbdfa080,
+        type: 2}
+      propertyPath: m_Center.y
+      value: -0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b88831f44791a1a4cac00abdfbdfa080, type: 2}
   m_IsPrefabParent: 0

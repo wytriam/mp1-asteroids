@@ -11,10 +11,13 @@ public class SM_Asteroids : WytriamSTD.Scene_Manager
     private Spawner spawner;
     private int waveCount = 0;
     private bool transition = false;
+    private bool ending = false;
+    private bool anyKeyPressed = false;
 
 	// Use this for initialization
 	void Start ()
     {
+        transition = true;
         constants = GetComponent<Constants>();
         spawner = GetComponent<Spawner>();
         StartCoroutine("StartWave");
@@ -23,38 +26,49 @@ public class SM_Asteroids : WytriamSTD.Scene_Manager
 	// Update is called once per frame
 	void Update ()
     {
+        // Check for next wave
         if (!transition && constants.getNumAsteroids() <= 0)
-        {
-            Debug.Log("No Asteroids Remain");
             StartCoroutine("EndWave");
-        }
-        else
-            Debug.Log("" + constants.getNumAsteroids() + " asteroids remain");
-	}
+        
+        // Check for game loss
+        if (!transition && constants.getNumShips() <= 0)
+            StartCoroutine("EndGame");
+
+        if(ending)
+            if (Input.anyKey)
+                anyKeyPressed = true;
+    }
 
     IEnumerator StartWave()
     {
-        waveCount++;
-        announce("Wave " + waveCount + ":\nSurvive", 3);
+        announce("Wave " + (waveCount+1) + ":\nSurvive", 3);
         spawner.populateSpace(asteroidsPerWave);
         yield return new WaitForSeconds(3);
-        transition = false;
         spawner.spawnPlayer();
+        // transition is only false after new ship is spawned
+        transition = false;
         asteroidsPerWave += waveIncrement;
         StopCoroutine("StartWave");
     }
 
     IEnumerator EndWave()
     {
-        Debug.Log("EndWave::Line 49");
         transition = true;
-        Debug.Log("EndWave::Line 51");
+        waveCount++;
         announce("Wave Complete", 3);
-        Debug.Log("EndWave::Line 53");
         yield return new WaitForSeconds(3);
-        Debug.Log("EndWave::Line 55");
         StartCoroutine("StartWave");
-        Debug.Log("EndWave::Line 57");
         StopCoroutine("EndWave");
+    }
+
+    IEnumerator EndGame()
+    {
+        announce("Space is a dangerous realm...", 3);
+        yield return new WaitForSeconds(3);
+        announce("Your fleet survived " + waveCount + " waves!\nPress any key to return to the main menu.");
+        ending = true;
+        while (!anyKeyPressed)
+            yield return null;
+        // TO-DO - MENU TRANSITION
     }
 }

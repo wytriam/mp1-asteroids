@@ -20,6 +20,7 @@ public class PlayerShip : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        Messenger.Broadcast(Messages.INST_SHIP);
         rb = GetComponent<Rigidbody>();
 	}
 	
@@ -50,5 +51,10 @@ public class PlayerShip : MonoBehaviour
         gun = (gun + 1) % guns.Length;
         Rigidbody rigidB = projGO.GetComponent<Rigidbody>();
         rigidB.velocity = transform.up * projectileSpeed;
+    }
+
+    void OnDestroy()
+    {
+        Messenger.Broadcast(Messages.DEST_SHIP);
     }
 }

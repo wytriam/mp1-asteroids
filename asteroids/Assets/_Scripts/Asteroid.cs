@@ -47,6 +47,10 @@ public class Asteroid : MonoBehaviour
             Destroy(c.gameObject);
             Split();
         }
+        if (c.gameObject.tag == "Player")
+        {
+            Destroy(c.gameObject);
+        }
     }
 
     // splits an asteroid into smaller asteroids, and destroys the current asteroid

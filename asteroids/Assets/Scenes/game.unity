@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroidsPerWave: 1
-  waveIncrement: 2
+  waveIncrement: 3
 --- !u!114 &2119507245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15ce78829f06b3c41927aa7899220d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numLives: 3
+  numShips: 0
   numAsteroids: 0
 --- !u!114 &2119507246
 MonoBehaviour:
