@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerShip : MonoBehaviour
 {
+    public bool testMode = false;
     public float thrust = 5f;
-    //public float maxSpeed = 10f;
     public float rotSpeed = 5f;
 
     [Header("Projectile Details")]
@@ -15,31 +15,42 @@ public class PlayerShip : MonoBehaviour
     public GameObject[] guns;
     private int gun = 0;
 
+    [Header("Death Stuff")]
+    public bool exploding = false;
+    public bool explosionTest = false;
+    public GameObject explosion;
+    public Vector3 explosionOffset = new Vector3(0, 0, 30);
+    public float deathDelay = 2;
+
     Rigidbody rb;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
-        Messenger.Broadcast(Messages.INST_SHIP);
+        if (!testMode)
+            Messenger.Broadcast(Messages.INST_SHIP);
         rb = GetComponent<Rigidbody>();
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-        float vInput = Input.GetAxis("Vertical");
-        float hInput = Input.GetAxis("Horizontal");
-
-        // Apply force to ship based on input
-        rb.AddForce(rb.transform.up * thrust * vInput, ForceMode.Acceleration);
-        rb.AddForce(rb.transform.right * thrust * hInput, ForceMode.Acceleration);
-
-        // Rotate ship with A/D or Left Arrow/Right Arrow
-        rb.rotation *= Quaternion.Euler(0, 0, hInput * -rotSpeed);
-        // Allow the ship to fire
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!exploding)
         {
-            TempFire();
+            float vInput = Input.GetAxis("Vertical");
+            float hInput = Input.GetAxis("Horizontal");
+
+            // Apply force to ship based on input
+            rb.AddForce(rb.transform.up * thrust * vInput, ForceMode.Acceleration);
+            rb.AddForce(rb.transform.right * thrust * hInput, ForceMode.Acceleration);
+
+            // Rotate ship with A/D or Left Arrow/Right Arrow
+            rb.rotation *= Quaternion.Euler(0, 0, hInput * -rotSpeed);
+            // Allow the ship to fire
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                TempFire();
+            }
         }
     }
 
@@ -53,8 +64,34 @@ public class PlayerShip : MonoBehaviour
         rigidB.velocity = transform.up * projectileSpeed;
     }
 
-    void OnDestroy()
+    void OnCollisionEnter(Collision c)
     {
-        Messenger.Broadcast(Messages.DEST_SHIP);
+        if (exploding) return;
+        if (c.gameObject.tag == "Asteroid")
+        {
+            StartCoroutine("Death");
+            Destroy(c.gameObject);
+        }
     }
+
+    IEnumerator Death()
+    {
+        exploding = true;
+        if (!testMode)
+            Messenger.Broadcast(Messages.DEST_SHIP);
+        GameObject boom = Instantiate<GameObject>(explosion, gameObject.transform);
+        boom.transform.position += explosionOffset;
+        DeleteAfterSeconds boomClock = boom.GetComponent<DeleteAfterSeconds>();
+        if (boomClock != null)
+            boomClock.duration = deathDelay;
+        if (explosionTest && boomClock != null)
+        {
+            boomClock.duration = -1;
+            StopCoroutine("Death");
+        }
+
+        yield return new WaitForSeconds(deathDelay);
+        Destroy(gameObject);
+    }
+
 }

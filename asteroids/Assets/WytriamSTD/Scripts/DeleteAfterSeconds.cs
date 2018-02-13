@@ -6,19 +6,17 @@ public class DeleteAfterSeconds : MonoBehaviour
 {
     public float duration = 1f;
 
-    private float timer;
-
 	// Use this for initialization
 	void Start ()
     {
-        timer = 0;
-	}
+        StartCoroutine("SelfDelete");
+    }
 	
-	// Update is called once per frame
-	void Update ()
+    IEnumerator SelfDelete()
     {
-        timer += Time.fixedDeltaTime;
-        if (timer > duration)
-            Destroy(gameObject);
-	}
+        if (duration == -1)
+            StopCoroutine("SelfDelete");
+        yield return new WaitForSeconds(duration);
+        Destroy(gameObject);
+    }
 }

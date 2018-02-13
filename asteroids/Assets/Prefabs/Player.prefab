@@ -1217,6 +1217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0976139301fdf87419a89953f5475f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMode: 0
   thrust: 5
   rotSpeed: 1
   projectilePrefab: {fileID: 1150304111281298, guid: d732083c6d348184da95d96f81792462,
@@ -1225,6 +1226,11 @@ MonoBehaviour:
   guns:
   - {fileID: 1602149153267164}
   - {fileID: 1951904823349774}
+  exploding: 0
+  explosionTest: 0
+  explosion: {fileID: 1761825563398912, guid: 6b4084a7aef0d4d45abe63ed476429ab, type: 2}
+  explosionOffset: {x: 0, y: -1, z: -10}
+  deathDelay: 4
 --- !u!135 &135028244438747318
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1235,5 +1241,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 2.5
   m_Center: {x: 0, y: -0.4, z: 0}

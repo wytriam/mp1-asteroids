@@ -15,11 +15,8 @@ namespace WytriamSTD
     public class Announcements : MonoBehaviour
     {
         private static Announcements instance;
-        //private Announcements() {} //Singleton Implementation. No extra announcements can be made
         public static Announcements getInstance()
         {
-            //if (instance == null)
-                //instance = new Announcements();
             return instance;
         }
 
@@ -28,7 +25,6 @@ namespace WytriamSTD
 
         private List<string> announcementLog;
         private Text anncmntText;
-        private float timer = 0.0f;
         private bool allowAnnouncements = true;
         private IEnumerator ancmnt;
 

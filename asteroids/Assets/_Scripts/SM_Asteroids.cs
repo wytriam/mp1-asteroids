@@ -65,10 +65,13 @@ public class SM_Asteroids : WytriamSTD.Scene_Manager
     {
         announce("Space is a dangerous realm...", 3);
         yield return new WaitForSeconds(3);
-        announce("Your fleet survived " + waveCount + " waves!\nPress any key to return to the main menu.");
         ending = true;
         while (!anyKeyPressed)
-            yield return null;
+        {
+            announce("Your fleet survived " + waveCount + " waves!\nPress any key to return to the main menu.", 3);
+            yield return new WaitForSeconds(6);
+        }
+        Debug.Log("Returning to Main Menu...");
         // TO-DO - MENU TRANSITION
     }
 }

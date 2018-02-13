@@ -268,7 +268,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4907636998666416, guid: b88831f44791a1a4cac00abdfbdfa080, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.91
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4907636998666416, guid: b88831f44791a1a4cac00abdfbdfa080, type: 2}
       propertyPath: m_LocalPosition.y
@@ -313,6 +313,32 @@ Prefab:
       propertyPath: m_Center.y
       value: -0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 114748655337921714, guid: b88831f44791a1a4cac00abdfbdfa080,
+        type: 2}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 1761825563398912, guid: 6b4084a7aef0d4d45abe63ed476429ab,
+        type: 2}
+    - target: {fileID: 114748655337921714, guid: b88831f44791a1a4cac00abdfbdfa080,
+        type: 2}
+      propertyPath: testMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748655337921714, guid: b88831f44791a1a4cac00abdfbdfa080,
+        type: 2}
+      propertyPath: deathDelay
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748655337921714, guid: b88831f44791a1a4cac00abdfbdfa080,
+        type: 2}
+      propertyPath: explosionOffset.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748655337921714, guid: b88831f44791a1a4cac00abdfbdfa080,
+        type: 2}
+      propertyPath: explosionOffset.y
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b88831f44791a1a4cac00abdfbdfa080, type: 2}
   m_IsPrefabParent: 0
@@ -325,7 +351,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4122826311444510, guid: 326c5a7eb548b2b499fadfdb2501ad66, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 323.7
       objectReference: {fileID: 0}
     - target: {fileID: 4122826311444510, guid: 326c5a7eb548b2b499fadfdb2501ad66, type: 2}
       propertyPath: m_LocalPosition.y
@@ -369,6 +395,11 @@ Prefab:
         type: 2}
       propertyPath: m_IsKinematic
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424726305278906, guid: 326c5a7eb548b2b499fadfdb2501ad66,
+        type: 2}
+      propertyPath: testMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 326c5a7eb548b2b499fadfdb2501ad66, type: 2}
