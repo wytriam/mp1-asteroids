@@ -8,6 +8,7 @@ public class Asteroid : MonoBehaviour
     public Vector2 velocityRange = new Vector2(4, 6);
     public bool randomizeInitialSettings = true;
     public GameObject splitAsteroid;
+    public float splitSpawnRange = 5;
 
     float speed;
     float rot;
@@ -60,7 +61,7 @@ public class Asteroid : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             // create new asteroid. NOTE - CANNOT USE THE PARENT TRANSFORM. THAT WOULD MAKE THE NEW OBJECT A CHILD OF THE CURRENT OBJECT, AND WOULD LEAD TO IT BEING DESTROYED AT THE END OF THIS FUNCTION
-            GameObject asteroidGO = Instantiate<GameObject>(splitAsteroid, new Vector3(transform.position.x + Random.Range(-10, 10), transform.position.y + Random.Range(-10, 10), transform.position.z), new Quaternion());
+            GameObject asteroidGO = Instantiate<GameObject>(splitAsteroid, new Vector3(transform.position.x + Random.Range(-splitSpawnRange, splitSpawnRange), transform.position.y + Random.Range(-splitSpawnRange, splitSpawnRange), transform.position.z), new Quaternion());
             // turn off randomization of initial settings
             asteroidGO.GetComponent<Asteroid>().randomizeInitialSettings = false;
             asteroidGO.GetComponent<Asteroid>().testMode = testMode;

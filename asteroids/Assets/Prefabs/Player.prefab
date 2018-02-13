@@ -1218,8 +1218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testMode: 0
-  thrust: 5
-  rotSpeed: 1
+  thrust: 10
+  rotSpeed: 2
   projectilePrefab: {fileID: 1150304111281298, guid: d732083c6d348184da95d96f81792462,
     type: 2}
   projectileSpeed: 20

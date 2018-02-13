@@ -31,7 +31,7 @@ public class SM_Asteroids : WytriamSTD.Scene_Manager
             StartCoroutine("EndWave");
         
         // Check for game loss
-        if (!transition && constants.getNumShips() <= 0)
+        if (!transition && !ending && constants.getNumShips() <= 0)
             StartCoroutine("EndGame");
 
         if(ending)

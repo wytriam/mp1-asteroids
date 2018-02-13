@@ -7,6 +7,7 @@ public class PlayerShip : MonoBehaviour
     public bool testMode = false;
     public float thrust = 5f;
     public float rotSpeed = 5f;
+    public int shieldLevel = 0;
 
     [Header("Projectile Details")]
     public GameObject projectilePrefab;
@@ -22,7 +23,17 @@ public class PlayerShip : MonoBehaviour
     public Vector3 explosionOffset = new Vector3(0, 0, 30);
     public float deathDelay = 2;
 
+    [Header("Level Up")]
+    public float projectileSpeedIncrement = 5;
+
+    private bool rotatedLeft = false;
+
     Rigidbody rb;
+
+    void Awake()
+    {
+        
+    }
 
     // Use this for initialization
     void Start()
@@ -39,6 +50,12 @@ public class PlayerShip : MonoBehaviour
         {
             float vInput = Input.GetAxis("Vertical");
             float hInput = Input.GetAxis("Horizontal");
+
+            // stop the ship rotating
+            if (rotatedLeft && hInput > 0)
+                rb.angularVelocity = Vector3.zero;
+            else if (!rotatedLeft && hInput < 0)
+                rb.angularVelocity = Vector3.zero;
 
             // Apply force to ship based on input
             rb.AddForce(rb.transform.up * thrust * vInput, ForceMode.Acceleration);
@@ -72,6 +89,12 @@ public class PlayerShip : MonoBehaviour
             StartCoroutine("Death");
             Destroy(c.gameObject);
         }
+    }
+
+    void LevelUp()
+    {
+        projectileSpeed += projectileSpeedIncrement;
+        shieldLevel++;
     }
 
     IEnumerator Death()
