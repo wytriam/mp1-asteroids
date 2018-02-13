@@ -30,6 +30,7 @@ namespace WytriamSTD
         private Text anncmntText;
         private float timer = 0.0f;
         private bool allowAnnouncements = true;
+        private IEnumerator ancmnt;
 
         void Awake()
         {
@@ -64,31 +65,25 @@ namespace WytriamSTD
         public void DisplayAnnouncement(string announcement)
         {
             if (!allowAnnouncements) return;
-            //Debug.Log("Announcements::DisplayAnnouncement() - " + announcement);
-            anncmntText.enabled = true;
-            anncmntText.text = announcement;
-            if (!announcementLog.Contains(announcement))
-                announcementLog.Add(announcement);
+            ancmnt = Announcment(announcement);
+            StartCoroutine(ancmnt);
         }
 
         // Display an announcement to the screen for a fixed duration. If this announcement is not on the log, it will be added to the log
         public void DisplayAnnouncement(string announcement, float duration)
         {
             if (!allowAnnouncements) return;
-            //Debug.Log("Announcements::DisplayAnnouncement() - " + announcement);
-            anncmntText.text = announcement;
             announcementDuration = duration;
-            anncmntText.enabled = true;
-            if (!announcementLog.Contains(announcement))
-                announcementLog.Add(announcement);
+            ancmnt = Announcment(announcement);
+            StartCoroutine(ancmnt);
         }
 
         // Display an announcement from the announcementLog at location index to the screen.
         public void DisplayAnnouncement(int index)
         {
             if (!allowAnnouncements) return;
-            anncmntText.text = announcementLog[index];
-            anncmntText.enabled = true;
+            ancmnt = Announcment(announcementLog[index]);
+            StartCoroutine(ancmnt);
         }
 
         public void disableAnnouncements()
@@ -101,9 +96,15 @@ namespace WytriamSTD
             allowAnnouncements = true;
         }
 
-        IEnumerator Announcment(string announcement, float duration)
+        IEnumerator Announcment(string announcement)
         {
-            yield return null;
+            anncmntText.enabled = true;
+            anncmntText.text = announcement;
+            if (!announcementLog.Contains(announcement))
+                announcementLog.Add(announcement);
+            yield return new WaitForSeconds(announcementDuration);
+            anncmntText.enabled = false;
+            StopCoroutine(ancmnt);
         }
     }
 }
