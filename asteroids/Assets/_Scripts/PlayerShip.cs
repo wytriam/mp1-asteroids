@@ -32,7 +32,7 @@ public class PlayerShip : MonoBehaviour
 
     void Awake()
     {
-        
+        Messenger.AddListener(Messages.WAVE_CLEAR, LevelUp);
     }
 
     // Use this for initialization
@@ -86,7 +86,11 @@ public class PlayerShip : MonoBehaviour
         if (exploding) return;
         if (c.gameObject.tag == "Asteroid")
         {
-            StartCoroutine("Death");
+            shieldLevel--;
+            if (shieldLevel < 0)
+            {
+                StartCoroutine("Death");
+            }
             Destroy(c.gameObject);
         }
     }

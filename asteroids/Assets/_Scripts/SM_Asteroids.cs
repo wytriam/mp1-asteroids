@@ -53,6 +53,7 @@ public class SM_Asteroids : WytriamSTD.Scene_Manager
 
     IEnumerator EndWave()
     {
+        Messenger.Broadcast(Messages.WAVE_CLEAR);
         transition = true;
         waveCount++;
         announce("Wave Complete", 3);

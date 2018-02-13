@@ -8,7 +8,7 @@ public class Shield : MonoBehaviour
     public float rotationPerSecond = 0.1f;
 
     [Header("Set Dynamically")]
-    public int levelShown = 0;
+    public int levelShown = -1;
 
     // This non-public variable will not appear in the Inspector
     private Material mat;
@@ -32,9 +32,11 @@ public class Shield : MonoBehaviour
     {
         // Read the current shield level from the Hero Singleton
         int currLevel = Mathf.FloorToInt(ship.shieldLevel);
+        if (currLevel == -1) return;
         // If this is different from levelShown...
         if (levelShown != currLevel)
         {
+            Debug.Log("Changing Sheild Level");
             levelShown = currLevel;
             // Adjust the texture offest to show different shield level
             mat.mainTextureOffset = new Vector2(0.2f * levelShown, 0);
