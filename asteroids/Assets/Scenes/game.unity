@@ -430,6 +430,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2119507243}
   - component: {fileID: 2119507244}
+  - component: {fileID: 2119507245}
+  - component: {fileID: 2119507246}
   m_Layer: 0
   m_Name: SM-Asteroids
   m_TagString: GameController
@@ -461,3 +463,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8859308dd46a65c41a323968dba4c0ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2119507245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2119507242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ce78829f06b3c41927aa7899220d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numLives: 3
+  numAsteroids: 0
+--- !u!114 &2119507246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2119507242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7b81dea01760a45bb4a59701d80a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1526427869221770, guid: b88831f44791a1a4cac00abdfbdfa080, type: 2}
+  asteroids:
+  - {fileID: 1555126611597812, guid: 326c5a7eb548b2b499fadfdb2501ad66, type: 2}
+  - {fileID: 1771519340440560, guid: 77c62caf56590e44f86f8928d7191b98, type: 2}
+  - {fileID: 1033115637630832, guid: b8cf32f0a3f137f48b691a26b638180a, type: 2}

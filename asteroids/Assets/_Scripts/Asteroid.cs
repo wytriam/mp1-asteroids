@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
+    public bool testMode = false;
     public Vector2 velocityRange = new Vector2(4, 6);
     public bool randomizeInitialSettings = true;
     public GameObject splitAsteroid;
@@ -16,6 +17,11 @@ public class Asteroid : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        // not in test mode, so let game manager know you exist
+        if (!testMode)
+        {
+            Messenger.Broadcast(Messages.INST_ASTEROID);
+        }
         if (randomizeInitialSettings)
         {
             speed = Random.Range(velocityRange.x, velocityRange.y);
@@ -67,5 +73,10 @@ public class Asteroid : MonoBehaviour
 
         // destroy this asteroid
         Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        Messenger.Broadcast(Messages.DEST_ASTEROID);
     }
 }

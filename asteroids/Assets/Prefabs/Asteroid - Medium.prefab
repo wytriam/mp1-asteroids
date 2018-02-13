@@ -99,7 +99,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 48
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!114 &114227736855466824
 MonoBehaviour:
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001d978167b8aab4ab3720047e72a1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMode: 0
   velocityRange: {x: 6, y: 9}
   randomizeInitialSettings: 1
   splitAsteroid: {fileID: 1033115637630832, guid: b8cf32f0a3f137f48b691a26b638180a,

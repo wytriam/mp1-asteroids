@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class SM_Asteroids : WytriamSTD.Scene_Manager
 {
+    private Constants constants;
+    private Spawner spawner;
 
 	// Use this for initialization
 	void Start ()
     {
-        announce("this is a test");
+        constants = GetComponent<Constants>();
+        spawner = GetComponent<Spawner>();
+        StartCoroutine("StartingSequence");
 	}
 	
 	// Update is called once per frame
@@ -16,4 +20,11 @@ public class SM_Asteroids : WytriamSTD.Scene_Manager
     {
 		
 	}
+
+    IEnumerator StartingSequence()
+    {
+        announce("Survive", 3);
+        yield return new WaitForSeconds(3);
+        spawner.populateSpace();
+    }
 }
