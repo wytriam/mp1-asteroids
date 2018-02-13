@@ -42,7 +42,7 @@ public class Constants: MonoBehaviour
         numAsteroids++;
     }
 
-    int getNumAsteroids()
+    public int getNumAsteroids()
     {
         return numAsteroids;
     }
