@@ -7,7 +7,8 @@ public class PlayerShip : MonoBehaviour
     public bool testMode = false;
     public float thrust = 5f;
     public float rotSpeed = 5f;
-    public int shieldLevel = 0;
+    public int shieldLevel = 4;
+    public bool startUpShield = true;
 
     [Header("Projectile Details")]
     public GameObject projectilePrefab;
@@ -41,6 +42,19 @@ public class PlayerShip : MonoBehaviour
         if (!testMode)
             Messenger.Broadcast(Messages.INST_SHIP);
         rb = GetComponent<Rigidbody>();
+        StartCoroutine("StartingSafe");
+    }
+
+    IEnumerator StartingSafe()
+    {
+        shieldLevel = 4;
+        while (shieldLevel > 0)
+        {
+            yield return new WaitForSeconds(1);
+            shieldLevel--;
+        }
+        startUpShield = false;
+        StopCoroutine("StartingSafe");
     }
 
     // Update is called once per frame
@@ -87,8 +101,10 @@ public class PlayerShip : MonoBehaviour
         if (c.gameObject.tag == "Asteroid")
         {
             shieldLevel--;
+
             if (shieldLevel < 0)
             {
+                shieldLevel = 0;
                 StartCoroutine("Death");
             }
             Destroy(c.gameObject);

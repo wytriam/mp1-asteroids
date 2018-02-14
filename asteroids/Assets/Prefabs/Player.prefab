@@ -1249,6 +1249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationPerSecond: 0.1
+  altColor: {r: 1, g: 0, b: 1, a: 1}
   levelShown: -1
 --- !u!114 &114367562491818208
 MonoBehaviour:
@@ -1305,8 +1306,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testMode: 0
   thrust: 10
-  rotSpeed: 2
+  rotSpeed: 3
   shieldLevel: 0
+  startUpShield: 1
   projectilePrefab: {fileID: 1150304111281298, guid: d732083c6d348184da95d96f81792462,
     type: 2}
   projectileSpeed: 40

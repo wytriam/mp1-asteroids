@@ -6,12 +6,14 @@ public class Shield : MonoBehaviour
 {
     [Header("Set in Inspector")]
     public float rotationPerSecond = 0.1f;
+    public Color altColor;
 
     [Header("Set Dynamically")]
     public int levelShown = -1;
 
     // This non-public variable will not appear in the Inspector
     private Material mat;
+    private Color defaultCol;
 
     private PlayerShip ship;
 
@@ -19,6 +21,8 @@ public class Shield : MonoBehaviour
     void Start()
     {
         mat = GetComponent<Renderer>().material;
+        if (mat != null)
+            defaultCol = mat.color;
         ship = GetComponentInParent<PlayerShip>();
         if (ship == null)
         {
@@ -41,6 +45,10 @@ public class Shield : MonoBehaviour
             // Adjust the texture offest to show different shield level
             mat.mainTextureOffset = new Vector2(0.2f * levelShown, 0);
         }
+        if (ship.startUpShield)
+            mat.color = altColor;
+        else
+            mat.color = defaultCol;
         // Rotate the shield a bit every frame in a time-based way
         float rZ = -(rotationPerSecond * Time.time * 360) % 360f;
         transform.rotation = Quaternion.Euler(0, 0, rZ);
