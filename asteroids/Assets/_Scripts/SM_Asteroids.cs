@@ -10,7 +10,6 @@ public class SM_Asteroids : WytriamSTD.Scene_Manager
     
     private bool transition = false;
     private bool ending = false;
-    private bool anyKeyPressed = false;
 
 	// Use this for initialization
 	void Start ()

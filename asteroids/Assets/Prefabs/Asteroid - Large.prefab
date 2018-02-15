@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001d978167b8aab4ab3720047e72a1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testMode: 1
+  testMode: 0
   velocityRange: {x: 4, y: 6}
   randomizeInitialSettings: 1
   splitAsteroid: {fileID: 1771519340440560, guid: 77c62caf56590e44f86f8928d7191b98,

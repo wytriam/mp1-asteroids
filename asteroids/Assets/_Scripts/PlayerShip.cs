@@ -115,7 +115,8 @@ public class PlayerShip : MonoBehaviour
                 shieldLevel = 0;
                 StartCoroutine("Death");
             }
-            c.gameObject.GetComponent<Asteroid>().StartCoroutine("Split");
+            //c.gameObject.GetComponent<Asteroid>().StartCoroutine("Split");
+            Destroy(c.gameObject);
         }
     }
 
