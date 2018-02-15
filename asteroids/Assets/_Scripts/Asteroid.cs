@@ -44,17 +44,26 @@ public class Asteroid : MonoBehaviour
         if (c.gameObject.tag == "Projectile")
         {
             Destroy(c.gameObject);
-            Split();
+            StartCoroutine("Split");
         }
     }
 
     // splits an asteroid into smaller asteroids, and destroys the current asteroid
-    public void Split()
+    IEnumerator Split()
     {
+        AudioSource boomSound = GetComponent<AudioSource>();
+        if (boomSound != null)
+        {
+            if (boomSound.mute)
+                boomSound.mute = false;
+            boomSound.Play();
+        }
+        else
+            Debug.Log("No AudioSource found");
+        yield return new WaitForSeconds(1);
         if (splitAsteroid == null)
         {
             Destroy(gameObject);
-            return;
         }
 
         // create sub asteroids

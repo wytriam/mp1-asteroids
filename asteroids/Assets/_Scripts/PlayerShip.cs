@@ -89,6 +89,14 @@ public class PlayerShip : MonoBehaviour
     {
         // guns[gun] gets the current gun location from the guns prefab
         GameObject projGO = Instantiate<GameObject>(projectilePrefab, guns[gun].transform);
+        // make gun noise
+        AudioSource gunfire = guns[gun].GetComponent<AudioSource>();
+        if (gunfire != null)
+        {
+            if (gunfire.mute)
+                gunfire.mute = false;
+            gunfire.Play();
+        }
         // set up the next guns object: 
         gun = (gun + 1) % guns.Length;
         Rigidbody rigidB = projGO.GetComponent<Rigidbody>();
@@ -107,7 +115,7 @@ public class PlayerShip : MonoBehaviour
                 shieldLevel = 0;
                 StartCoroutine("Death");
             }
-            Destroy(c.gameObject);
+            c.gameObject.GetComponent<Asteroid>().StartCoroutine("Split");
         }
     }
 
@@ -120,6 +128,13 @@ public class PlayerShip : MonoBehaviour
     IEnumerator Death()
     {
         exploding = true;
+        AudioSource boomSound = GetComponent<AudioSource>();
+        if (boomSound != null)
+        {
+            if (boomSound.mute)
+                boomSound.mute = false;
+            boomSound.Play();
+        }
         if (!testMode)
             Messenger.Broadcast(Messages.DEST_SHIP);
         GameObject boom = Instantiate<GameObject>(explosion, gameObject.transform);
