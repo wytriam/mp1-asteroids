@@ -245,6 +245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testMode: 0
+  explosion: {fileID: 1597355728682512, guid: 1751815e3266a8640b6b84e46159b35c, type: 2}
+  sphere: {fileID: 1150815415682444}
   velocityRange: {x: 4, y: 6}
   randomizeInitialSettings: 1
   splitAsteroid: {fileID: 1202757506355396, guid: 77c62caf56590e44f86f8928d7191b98,
