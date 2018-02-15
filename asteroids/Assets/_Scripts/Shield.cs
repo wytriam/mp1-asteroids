@@ -26,7 +26,6 @@ public class Shield : MonoBehaviour
         ship = GetComponentInParent<PlayerShip>();
         if (ship == null)
         {
-            Debug.Log("Shield::Start() - No ship is a parent of this shield");
             Destroy(gameObject);
         }
     }
@@ -40,7 +39,7 @@ public class Shield : MonoBehaviour
         // If this is different from levelShown...
         if (levelShown != currLevel)
         {
-            Debug.Log("Changing Sheild Level");
+            //Debug.Log("Changing Sheild Level");
             levelShown = currLevel;
             // Adjust the texture offest to show different shield level
             mat.mainTextureOffset = new Vector2(0.2f * levelShown, 0);

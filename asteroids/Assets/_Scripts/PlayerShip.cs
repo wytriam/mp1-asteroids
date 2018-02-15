@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerShip : MonoBehaviour
 {
+    public GameObject geometry;
     public bool testMode = false;
     public float thrust = 5f;
     public float rotSpeed = 5f;
@@ -122,6 +123,7 @@ public class PlayerShip : MonoBehaviour
 
     void LevelUp()
     {
+        if (exploding) return;
         projectileSpeed += projectileSpeedIncrement;
         shieldLevel++;
     }
@@ -129,6 +131,8 @@ public class PlayerShip : MonoBehaviour
     IEnumerator Death()
     {
         exploding = true;
+        if (geometry != null)
+            geometry.SetActive(false);
         AudioSource boomSound = GetComponent<AudioSource>();
         if (boomSound != null)
         {
