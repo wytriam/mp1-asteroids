@@ -1,0 +1,4 @@
+Sources for Sounds: 
+Gunfire: https://freesound.org/people/LittleRobotSoundFactory/sounds/270542/
+Asteroid Explosion: https://freesound.org/people/RSilveira_88/sounds/216270/
+Ship Explosion: https://freesound.org/people/EFlexTheSoundDesigner/sounds/388528/
