@@ -11,11 +11,20 @@ public class Constants: MonoBehaviour
     [SerializeField]
     private int numAsteroids = 0;
 
+    [SerializeField]
+    private int asteroidsDestroyedCount = 0;
+
+    public int waveCount = 0;
+    public int asteroidsPerWave = 10;
+    public int waveIncrement = 2;
+
+
     // initialize listeners
     void Awake()
     {
         Messenger.AddListener(Messages.INST_ASTEROID, incAst);
         Messenger.AddListener(Messages.DEST_ASTEROID, decAst);
+        Messenger.AddListener(Messages.DEST_ASTEROID, astDestCnt);
         Messenger.AddListener(Messages.INST_SHIP, incShips);
         Messenger.AddListener(Messages.DEST_SHIP, decShips);
     }
@@ -30,6 +39,16 @@ public class Constants: MonoBehaviour
     void incAst()
     {
         numAsteroids++;
+    }
+
+    void astDestCnt()
+    {
+        asteroidsDestroyedCount++;
+    }
+
+    public int getAsteroidsDestroyed()
+    {
+        return asteroidsDestroyedCount;
     }
 
     public int getNumAsteroids()

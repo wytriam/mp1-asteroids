@@ -13,6 +13,7 @@ public class BoundsCheck : MonoBehaviour
     public float radius = 1f;
     public bool keepOnScreen = false;
     public bool wrap = false;
+    public bool deleteIfOffScren = false;
 
     [Header("Set Dynamically")]
     public bool isOnScreen = true;
@@ -91,6 +92,10 @@ public class BoundsCheck : MonoBehaviour
         }
 
         isOnScreen = !(offRight || offLeft || offUp || offDown);
+        if (!isOnScreen && deleteIfOffScren)
+        {
+            Destroy(gameObject);
+        }
         if (keepOnScreen && !isOnScreen)
         {
             transform.position = pos;
