@@ -29,10 +29,9 @@ public class menu_manager : MonoBehaviour
             SelectButton();
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (selectButton != null)
-            {
-                selectButton.GetComponent<Button>().onClick.Invoke();
-            }
+            if (selectButton == null)
+                SelectButton();
+            selectButton.GetComponent<Button>().onClick.Invoke();
         }
 	}
 
