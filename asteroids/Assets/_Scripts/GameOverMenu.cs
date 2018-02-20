@@ -32,7 +32,14 @@ public class GameOverMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!menuActivated) return;
+        if (!menuActivated)
+        {
+            if (GetComponent<SM_Asteroids>().ending)
+            {
+                GameOver();
+            }
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow))
             SelectButton();
         if (Input.GetKeyDown(KeyCode.Space))

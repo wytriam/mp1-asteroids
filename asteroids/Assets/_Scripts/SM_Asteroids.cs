@@ -8,8 +8,10 @@ public class SM_Asteroids : WytriamSTD.Scene_Manager
     private Constants constants;
     private Spawner spawner;
     
-    private bool transition = false;
-    private bool ending = false;
+    [HideInInspector]
+    public bool transition = false;
+    [HideInInspector]
+    public bool ending = false;
 
 	// Use this for initialization
 	void Start ()
